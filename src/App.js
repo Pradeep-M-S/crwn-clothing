@@ -1,6 +1,7 @@
 import "./App.scss";
 import { HomePage } from "./pages/HomePage/HomePage";
 import { Route, Switch } from "react-router-dom";
+import ShopPage from "./pages/ShopPage/ShopPage";
 
 function HatsPage(props) {
   console.log(props);
@@ -16,6 +17,7 @@ function App() {
     <div>
       <Switch>
         <Route exact path="/" component={HomePage} />{" "}
+        <Route exact path="/shop" component={ShopPage} />
         <Route path="/shop/hats" component={HatsPage} />
       </Switch>
     </div>
