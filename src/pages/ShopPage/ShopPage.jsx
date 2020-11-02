@@ -11,9 +11,7 @@ class ShopPage extends Component {
     };
   }
 
-  componentDidMount() {
-    console.log(this.state.collections);
-  }
+
   render() {
     const { collections } = this.state;
     return (
