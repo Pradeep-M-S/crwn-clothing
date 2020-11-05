@@ -58,7 +58,7 @@ class SignUp extends React.Component {
       <IconContext.Provider value={{ size: "28px" }}>
         <div className="sign-up">
           <h2 className="title">I do not have an account</h2>
-          <span>Sign up with email and password</span>
+          <span>Sign up with E-Mail and Password</span>
           <form className="sign-up-form" onSubmit={this.handleSubmit}>
             <FormInput
               type="text"

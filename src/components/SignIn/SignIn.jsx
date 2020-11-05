@@ -6,7 +6,7 @@ import { signInWithGoogle } from "../../firebase/firebase.utility";
 import { AiFillGoogleCircle } from "react-icons/ai";
 import { VscSignIn } from "react-icons/vsc";
 import { IconContext } from "react-icons";
-
+import { auth } from "../../firebase/firebase.utility";
 class SignIn extends Component {
   constructor(props) {
     super(props);
@@ -23,16 +23,23 @@ class SignIn extends Component {
     this.setState({ [name]: value }, console.log(this.state));
   };
 
-  handleSubmit = (e) => {
+  handleSubmit = async (e) => {
     e.preventDefault();
-    this.setState({ email: "", password: "" });
+
+    const { email, password } = this.state;
+    try {
+      await auth.signInWithEmailAndPassword(email, password);
+      this.setState({ email: "", password: "" });
+    } catch (e) {
+      console.log(e);
+    }
   };
   render() {
     return (
       <IconContext.Provider value={{ size: "28px" }}>
         <div className="sign-in" style={{ textAlign: "center" }}>
-          <h1 className="title">Login</h1>
-          <h4>I already have an account</h4>
+          <h2 className="title">i already have an account</h2>
+          <span>Sign up with E-Mail and Password</span>
           <form onSubmit={this.handleSubmit}>
             <FormInput
               name="email"

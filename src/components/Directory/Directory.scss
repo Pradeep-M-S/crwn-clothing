@@ -2,5 +2,12 @@
   width: 100%;
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-between;
+  justify-self: center;
+  align-self: center;
+}
+@media screen and (max-width: 600px) {
+  .directory-menu {
+    display: grid;
+    grid-template-columns: 1;
+  }
 }
