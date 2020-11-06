@@ -7,7 +7,9 @@ import { auth } from "../../firebase/firebase.utility";
 import { AiFillHome, AiTwotoneShopping } from "react-icons/ai";
 import { GoSignIn, GoSignOut } from "react-icons/go";
 import { IconContext } from "react-icons";
-const Header = ({ currentUser }) => {
+import CartIcon from "../CartIcon/CartIcon";
+import CartDropDown from "../CartDropdown/CartDropdown";
+const Header = ({ currentUser, cartDropdownHidden }) => {
   return (
     <div className="header">
       <IconContext.Provider value={{ size: "40px", color: "#214252" }}>
@@ -41,13 +43,19 @@ const Header = ({ currentUser }) => {
             Sign In
           </Link>
         )}
-      </div>{" "}
+        <CartIcon />
+      </div>
+      {cartDropdownHidden ? null : <CartDropDown />}
     </div>
   );
 };
 
-const mapStateToProps = (state) => ({
-  currentUser: state.user.currentUser,
+const mapStateToProps = ({
+  user: { currentUser },
+  cart: { cartDropdownHidden },
+}) => ({
+  currentUser: currentUser,
+  cartDropdownHidden: cartDropdownHidden,
 });
 
 export default connect(mapStateToProps)(Header);
