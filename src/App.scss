@@ -12,22 +12,4 @@ a {
   transition: all 300ms ease-in;
   position: relative;
   text-decoration: none;
-  &::after {
-    position: absolute;
-    content: "";
-    width: 100%;
-    height: 3px;
-    top: 100%;
-    left: 0;
-    background: #6f10d5;
-    transition: transform 0.5s;
-    transform: scaleX(0);
-    transform-origin: right;
-  }
-  &:hover {
-  }
-  &:hover::after {
-    transform: scaleX(1);
-    transform-origin: left;
-  }
 }

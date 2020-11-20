@@ -9,6 +9,9 @@ import { GoSignIn, GoSignOut } from "react-icons/go";
 import { IconContext } from "react-icons";
 import CartIcon from "../CartIcon/CartIcon";
 import CartDropDown from "../CartDropdown/CartDropdown";
+import { createStructuredSelector } from "reselect";
+import { selectCurrentUser } from "../../redux/user/user-selector";
+import { selectCartDropdownHidden } from "../../redux/cart/cart-selectors";
 const Header = ({ currentUser, cartDropdownHidden }) => {
   return (
     <div className="header">
@@ -50,12 +53,9 @@ const Header = ({ currentUser, cartDropdownHidden }) => {
   );
 };
 
-const mapStateToProps = ({
-  user: { currentUser },
-  cart: { cartDropdownHidden },
-}) => ({
-  currentUser: currentUser,
-  cartDropdownHidden: cartDropdownHidden,
+const mapStateToProps = createStructuredSelector({
+  currentUser: selectCurrentUser,
+  cartDropdownHidden: selectCartDropdownHidden,
 });
 
 export default connect(mapStateToProps)(Header);
