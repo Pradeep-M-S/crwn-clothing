@@ -1,0 +1,7 @@
+.collection-page {
+  .items {
+    display: grid;
+    grid-template-columns: repeat(3, auto);
+    gap: 30px;
+  }
+}

@@ -5,10 +5,10 @@ import { connect } from "react-redux";
 import { selectCartItems } from "../../redux/cart/cart-selectors";
 import CartItem from "../CartItem/CartItem";
 import { createStructuredSelector } from "reselect";
-import { Link } from "react-router-dom";
 import { toggleCartHidden } from "../../redux/cart/cart-actions";
 import { AiFillCarryOut } from "react-icons/ai";
-const CartDropDown = ({ cartItems, toggleCartHidden }) => (
+import { withRouter } from "react-router";
+const CartDropDown = ({ cartItems, toggleCartHidden,history }) => (
   <div className="cart-dropdown">
     <div className="cart-items">
       {cartItems.length ? (
@@ -29,13 +29,14 @@ const CartDropDown = ({ cartItems, toggleCartHidden }) => (
         </span>
       )}
     </div>
-    <Link to="checkout">
       {" "}
-      <CustomButton onClick={() => toggleCartHidden()}>
+      <CustomButton onClick={() => {
+        toggleCartHidden();
+        history.push("/checkout")
+      }}>
         <AiFillCarryOut />
         CHECKOUT
       </CustomButton>
-    </Link>{" "}
   </div>
 );
 
@@ -46,4 +47,4 @@ const mapStateToProps = createStructuredSelector({
 const mapDispatchToProps = (dispatch) => ({
   toggleCartHidden: () => dispatch(toggleCartHidden()),
 });
-export default connect(mapStateToProps, mapDispatchToProps)(CartDropDown);
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(CartDropDown));

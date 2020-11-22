@@ -18,9 +18,9 @@ const Header = ({ currentUser, cartDropdownHidden }) => {
       <IconContext.Provider value={{ size: "40px", color: "#214252" }}>
         <Link to="/" className="logo-container">
           <GrCatalogOption />{" "}
-          <Link to="/" className="option">
+          <div  className="option">
             Crwn Clothing
-          </Link>
+          </div>
         </Link>{" "}
       </IconContext.Provider>
       <div className="options">

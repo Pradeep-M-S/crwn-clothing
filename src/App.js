@@ -12,14 +12,6 @@ import { auth, createUserProfileDocument } from "./firebase/firebase.utility";
 import { setCurrentUser } from "./redux/user/user-actions";
 import { selectCurrentUser } from "./redux/user/user-selector";
 import { createStructuredSelector } from "reselect";
-function HatsPage(props) {
-  console.log(props);
-  return (
-    <div>
-      <h1>Hats Page</h1>
-    </div>
-  );
-}
 
 class App extends Component {
   unsubscribeFromAuth = null;
@@ -52,10 +44,9 @@ class App extends Component {
         <div>
           <Header />
           <Switch>
-            <Route exact path="/" component={HomePage} />{" "}
-            <Route exact path="/shop" component={ShopPage} />
+            <Route exact path="/" component={HomePage} />
+            <Route path="/shop" component={ShopPage} />
             <Route exact path="/checkout" component={Checkout} />
-            <Route path="/shop/hats" component={HatsPage} />
             <Route
               exact
               path="/signinandsignup"
