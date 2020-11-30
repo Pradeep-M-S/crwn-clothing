@@ -1,7 +1,5 @@
 import React from "react";
-import "./Header.scss";
 import { connect } from "react-redux";
-import { Link } from "react-router-dom";
 import { GrCatalogOption } from "react-icons/gr";
 import { auth } from "../../firebase/firebase.utility";
 import { AiFillHome, AiTwotoneShopping } from "react-icons/ai";
@@ -12,44 +10,47 @@ import CartDropDown from "../CartDropdown/CartDropdown";
 import { createStructuredSelector } from "reselect";
 import { selectCurrentUser } from "../../redux/user/user-selector";
 import { selectCartDropdownHidden } from "../../redux/cart/cart-selectors";
+import {
+  HeaderContainer,
+  LogoContainer,
+  OptionsContainer,
+  OptionLink,
+} from "./Header.styles";
 const Header = ({ currentUser, cartDropdownHidden }) => {
   return (
-    <div className="header">
+    <HeaderContainer>
       <IconContext.Provider value={{ size: "40px", color: "#214252" }}>
-        <Link to="/" className="logo-container">
-          <GrCatalogOption />{" "}
-          <div  className="option">
-            Crwn Clothing
-          </div>
-        </Link>{" "}
+        <LogoContainer to="/">
+          <GrCatalogOption /> <div className="option">Crwn Clothing</div>
+        </LogoContainer>{" "}
       </IconContext.Provider>
-      <div className="options">
+      <OptionsContainer>
         {" "}
-        <Link className="option" to="/">
+        <OptionLink to="/">
           <AiFillHome className="react-icons-header" />
           Home
-        </Link>
-        <Link className="option" to="/shop">
+        </OptionLink>
+        <OptionLink to="/shop">
           {" "}
           <AiTwotoneShopping className="react-icons-header" />
           Shop
-        </Link>
+        </OptionLink>
         {currentUser ? (
-          <div className="option" onClick={() => auth.signOut()}>
+          <OptionLink as="div" onClick={() => auth.signOut()}>
             <GoSignOut className="react-icons-header" />
             Sign Out
-          </div>
+          </OptionLink>
         ) : (
-          <Link to="/signinandsignup" className="option">
+          <OptionLink to="/signinandsignup">
             {" "}
             <GoSignIn className="react-icons-header" />
             Sign In
-          </Link>
+          </OptionLink>
         )}
         <CartIcon />
-      </div>
+      </OptionsContainer>
       {cartDropdownHidden ? null : <CartDropDown />}
-    </div>
+    </HeaderContainer>
   );
 };
 

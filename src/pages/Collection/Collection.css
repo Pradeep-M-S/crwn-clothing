@@ -1,0 +1,8 @@
+.collection-page .items {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (auto)[3];
+      grid-template-columns: repeat(3, auto);
+  gap: 30px;
+}
+/*# sourceMappingURL=Collection.css.map */

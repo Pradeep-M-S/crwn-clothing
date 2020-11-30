@@ -4,3 +4,10 @@
   justify-content: space-evenly;
   font-family: sans-serif;
 }
+@media screen and (max-width: 960px) {
+  .signinandsignup {
+    display: grid;
+    grid-template-columns: 1fr;
+    margin: 0 auto;
+  }
+}

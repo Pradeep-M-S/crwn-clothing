@@ -8,3 +8,9 @@
     text-transform: uppercase;
   }
 }
+@media screen and (max-width: 960px) {
+  .sign-up {
+    width: 60vw;
+    margin: 0 auto;
+  }
+}

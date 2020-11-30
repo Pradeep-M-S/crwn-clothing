@@ -1,0 +1,21 @@
+.directory-menu {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  justify-self: center;
+  -ms-flex-item-align: center;
+      align-self: center;
+}
+
+@media screen and (max-width: 600px) {
+  .directory-menu {
+    display: -ms-grid;
+    display: grid;
+    -ms-grid-columns: 1;
+        grid-template-columns: 1;
+  }
+}
+/*# sourceMappingURL=Directory.css.map */
