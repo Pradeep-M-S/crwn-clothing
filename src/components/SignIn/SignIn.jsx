@@ -1,12 +1,13 @@
 import React, { Component } from "react";
 import "./SignIn.scss";
+import { connect } from "react-redux"
 import FormInput from "../FormInput/FormInput";
 import CustomButton from "../CustomButton/CustomButton";
-import { signInWithGoogle } from "../../firebase/firebase.utility";
 import { AiFillGoogleCircle } from "react-icons/ai";
 import { VscSignIn } from "react-icons/vsc";
 import { IconContext } from "react-icons";
-import { auth } from "../../firebase/firebase.utility";
+// import { auth, signInWithGoogle } from "../../firebase/firebase.utility";
+import { googleSignInStart, emailSignInStart } from "../../redux/user/user-actions"
 class SignIn extends Component {
   constructor(props) {
     super(props);
@@ -20,21 +21,23 @@ class SignIn extends Component {
   handleChange = (e) => {
     const { name, value } = e.target;
 
-    this.setState({ [name]: value }, console.log(this.state));
+    this.setState({ [name]: value });
   };
 
   handleSubmit = async (e) => {
     e.preventDefault();
-
+    const { emailSignInStart } = this.props;
     const { email, password } = this.state;
-    try {
-      await auth.signInWithEmailAndPassword(email, password);
-      this.setState({ email: "", password: "" });
-    } catch (e) {
-      console.log(e);
-    }
+    // try {
+    //   await auth.signInWithEmailAndPassword(email, password);
+    //   this.setState({ email: "", password: "" });
+    // } catch (e) {
+    //   console.log(e);
+    // }
+    emailSignInStart(email, password);
   };
   render() {
+    const { googleSignInStart } = this.props;
     return (
       <IconContext.Provider value={{ size: "28px" }}>
         <div className="sign-in" style={{ textAlign: "center" }}>
@@ -62,8 +65,8 @@ class SignIn extends Component {
               Sign In
             </CustomButton>
             <CustomButton
-              type="submit"
-              onClick={signInWithGoogle}
+              type="button"
+              onClick={googleSignInStart}
               color="#4285F4"
             >
               <AiFillGoogleCircle className="icon" />
@@ -76,4 +79,8 @@ class SignIn extends Component {
   }
 }
 
-export default SignIn;
+const mapDispatchToProps = (dispatch) => ({
+  googleSignInStart: () => dispatch(googleSignInStart()),
+  emailSignInStart: (email, password) => dispatch(emailSignInStart({ email, password }))
+})
+export default connect(null, mapDispatchToProps)(SignIn);
