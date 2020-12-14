@@ -5,17 +5,17 @@ import { HomepageContainer } from "./Homepage.styles";
 export const HomePage = () => (
   <HomepageContainer>
     {" "}
-    <h1
+    <h2
       style={{
         display: "flex",
         alignItems: "center",
         color: "white",
-        padding: "0 30px",
-      }} 
+        padding: "0",
+      }}
     >
       <FiShoppingCart style={{ padding: "15px" }} />
       SHOP NOW
-    </h1>
+    </h2>
     <Directory />
   </HomepageContainer>
 );
