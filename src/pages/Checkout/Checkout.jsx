@@ -17,7 +17,7 @@ const Checkout = ({ cartItems, total }) => {
           <span>Product</span>
         </div>
         <div className="header-block">
-          <span>Description</span>
+          <span>Descr.</span>
         </div>
         <div className="header-block">
           <span>Quantity</span>
@@ -34,10 +34,10 @@ const Checkout = ({ cartItems, total }) => {
           <CheckoutItem cartItem={cartItem} key={cartItem.id} />
         ))
       ) : (
-        <h1>
-          <i>No items to show</i>
-        </h1>
-      )}
+          <h1>
+            <i>No items to show</i>
+          </h1>
+        )}
       <div className="total">
         <span>Total : $ {total}</span>
       </div>

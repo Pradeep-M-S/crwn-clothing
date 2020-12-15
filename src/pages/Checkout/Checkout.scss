@@ -6,6 +6,10 @@
   align-items: center;
   color: wheat;
   margin: 50px auto 0;
+  font-size: clamp(.6rem , 4vw , 1rem);
+  @media screen and (max-width:868px) {
+    width:90%;
+  }
 
   .checkout-header {
     width: 100%;
@@ -16,10 +20,16 @@
 
     .header-block {
       text-transform: capitalize;
-      width: 23%;
+      width: 25%;
+
+      span {
+        font-size: clamp(13px, 2vw, 16px);
+      }
 
       &:last-child {
         width: 8%;
+      @media screen and(max-width:768px){
+display: none;  }
       }
     }
   }
@@ -27,12 +37,12 @@
   .total {
     margin-top: 30px;
     margin-left: auto;
-    font-size: 36px;
+    font-size: clamp(.6rem , 4vw , 1rem);
   }
   .test-warning {
     color: red;
     padding: 20px;
-    font-size: 1.5rem;
+    font-size: clamp(.6rem , 4vw , 1rem);
   }
   button {
     margin: 30px;
