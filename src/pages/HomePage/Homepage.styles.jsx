@@ -7,4 +7,5 @@ export const HomepageContainer = styled.div`
   justify-content: center;
   width: 100vw;
   margin: 0 auto;
+  padding-top:80px;
 `;

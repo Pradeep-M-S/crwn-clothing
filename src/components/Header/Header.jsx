@@ -59,13 +59,13 @@ const Header = ({ currentUser, cartDropdownHidden, signOutStart }) => {
         {
           isOpen ?
             <MenuContainer>
-              <OptionLink to="/">
+              <OptionLink to="/" onClick={() => setOpen(false)}>
                 Home
         </OptionLink>
-              <OptionLink to="/shop">
+              <OptionLink to="/shop" onClick={() => setOpen(false)}>
                 {" "}
           Shop
-        </OptionLink> <OptionLink to="/checkout">
+        </OptionLink> <OptionLink to="/checkout" onClick={() => setOpen(false)}>
                 {" "}
           Checkout
         </OptionLink>
@@ -74,7 +74,7 @@ const Header = ({ currentUser, cartDropdownHidden, signOutStart }) => {
                   Sign Out
                 </OptionLink>
               ) : (
-                  <OptionLink to="/signinandsignup">
+                  <OptionLink to="/signinandsignup" onClick={() => setOpen(false)}>
                     {" "}
             Sign In
                   </OptionLink>
@@ -84,7 +84,7 @@ const Header = ({ currentUser, cartDropdownHidden, signOutStart }) => {
         }
       </HamburgerContainer>
       {cartDropdownHidden ? null : <CartDropDown />}
-    </HeaderContainer>
+    </HeaderContainer >
   );
 };
 

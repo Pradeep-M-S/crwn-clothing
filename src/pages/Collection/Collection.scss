@@ -3,5 +3,10 @@
     display: grid;
     grid-template-columns: repeat(3, auto);
     gap: 30px;
+
+    @media screen and (max-width:800px){
+      grid-template-columns:1fr;
+      gap:10px;
+    }
   }
 }

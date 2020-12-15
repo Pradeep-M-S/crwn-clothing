@@ -7,6 +7,11 @@ export const HeaderContainer = styled.div`
   justify-content: space-between;
   margin-bottom: 15px;
   background-color: #f7f7f7;
+  position:fixed;
+  top:0;
+  right:0;
+  left:0;
+  z-index:65323546247;
   box-shadow: 0px 10px 5px rgba(0, 0, 0, 0.6);
 `;
 
@@ -68,12 +73,13 @@ export const HamburgerContainer = styled.div`
 
 export const MenuContainer = styled.div`
   width:100%;
-  height:25%;
+  height:auto;
   position:absolute;
   top:75px;
   background-color:#f7f7f7;
   left:0;
   z-index:2000000;
   border-radius:5px;
+  padding-bottom:20px;
   
 `
